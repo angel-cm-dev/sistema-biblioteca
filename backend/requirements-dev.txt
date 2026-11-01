@@ -1,0 +1,6 @@
+-r requirements.txt
+# Herramientas de desarrollo y pruebas
+pytest==9.2.0
+pytest-cov==7.1.0
+httpx2==2.16.0  # cliente HTTP que usa TestClient (Starlette 1.x)
+ruff==0.17.3

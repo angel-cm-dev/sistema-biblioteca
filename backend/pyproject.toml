@@ -1,0 +1,30 @@
+[project]
+name = "sistema-biblioteca-api"
+version = "1.0.0"
+description = "API REST para la gestión de una biblioteca: catálogo, socios, préstamos, reservas y multas."
+requires-python = ">=3.12"
+authors = [{ name = "Angel Castañeda Meza" }]
+license = { text = "MIT" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["error::DeprecationWarning:app.*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "N", "C4", "RUF"]
+ignore = [
+  "B008",   # Depends(...) en argumentos por defecto es el patrón idiomático de FastAPI
+  "RUF001", # permitimos caracteres en español (á, é, ñ) en strings
+  "RUF002",
+  "RUF003",
+  "RUF012", # los mapas SORTABLE de los repositorios son constantes de clase de solo lectura
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
